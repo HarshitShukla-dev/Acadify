@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const cookieParser = require('cookie-parser');
 const router = express.Router();
+require('dotenv').config();
 
 app.use(compression());
 app.use(cors());
@@ -16,7 +17,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use('/', router);
 
-const conn = mongoose.createConnection('mongodb+srv://harshitshukla:945252786@acadify.zsiyyca.mongodb.net/Acadify');
+const conn = mongoose.createConnection(process.env.MONGODB_CONNECTION_STRING);
 
 conn.on('open', () => {
     console.log('Connection to MongoDB established...');
@@ -73,16 +74,18 @@ router.post('/api/user/getotp', async (req, res) => {
     await user.save();
     // Create a Nodemailer transporter
     let transporter = nodemailer.createTransport({
-        service: 'gmail', // replace with your email service
-        auth: {
-            user: 'contact.acadify@gmail.com', // replace with your email
-            pass: 'hvdi fhrm dmiz xxfq' // replace with your password
-        }
+      host: "smtp.naver.com",
+      port: 587,
+      secure: false, // upgrade later with STARTTLS
+      auth: {
+        user: process.env.EMAIL_USERNAME,
+        pass: process.env.EMAIL_PASSWORD,
+      },
     });
 
     // Set up email data
     let mailOptions = {
-        from: 'contact.acadify+otp@gmail.com', // sender address
+        from: 'acadify@naver.com', // sender address
         to: email, // list of receivers
         subject: 'Your OTP', // Subject line
         html: `<!doctype html>
