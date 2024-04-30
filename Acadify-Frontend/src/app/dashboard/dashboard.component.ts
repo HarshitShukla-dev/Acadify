@@ -25,7 +25,7 @@ export class DashboardComponent {
 
   logout() {
     console.log('hit');
-    this.http.post('http://localhost:3000/api/user/logout', {}).subscribe({
+    this.http.post('/api/user/logout', {}).subscribe({
       next: (response: any) => {
         if (response.msg == "Logged out") {
           this.router.navigate(['/']);

@@ -37,7 +37,7 @@ export class QuizappComponent implements OnInit {
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
-    this.http.get<any[]>('http://localhost:3000/api/questions').subscribe((data: any[]) => {
+    this.http.get<any[]>('/api/questions').subscribe((data: any[]) => {
       this.questions = data;
     });
 

@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit{
             this.body.username = form.value.email;
             this.body.password = form.value.password;
             this.http
-                .post('http://localhost:3000/api/user/signin', this.body)
+                .post('/api/user/signin', this.body)
                 .subscribe((response: any) => {       
                     this.state = response.msg;
                     if(this.state == "Log In Success"){
