@@ -36,4 +36,12 @@ export class DashboardComponent {
       }
     });
   }
+
+  routeToQuiz(){
+    this.router.navigate(["/quizapp"]);
+  }
+
+  routeToCodeEditor(){
+  window.location.href = "/codeEditorExam"
+  }
 }

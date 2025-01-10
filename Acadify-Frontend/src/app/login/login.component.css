@@ -80,6 +80,9 @@
     margin-left: 2px;
 }
 
+.forgetContainer > button {
+    margin-left: 10px;
+}
 .rightContainer form input{
     box-sizing: border-box;
     width: 100%;

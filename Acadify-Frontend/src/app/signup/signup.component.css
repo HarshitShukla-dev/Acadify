@@ -9,6 +9,10 @@
     background-color: var(--md-sys-color-surface-container);
 }
 
+.Buttons > button{
+    margin-left: 10px;
+}
+
 .mainContent{
     display: flex;
     justify-content: space-between;

@@ -40,7 +40,10 @@
                 placeholder="Confirm Password" required>
             <p *ngIf="!passwordsMatch" style="color: rgb(150, 24, 24); font-size: 13px;">Passwords do not match.</p>
                 <p *ngIf="formSubmitted && !signupForm.valid" style="color: rgb(150, 24, 24); font-size: 13px;">*Please fill out all fields.</p>
-                <button type="submit">Next</button>
+                <div class="Buttons">
+                    <button type="button" id="guestBtn" (click)="redirectToDashboard()">Login as Guest</button>
+                    <button type="submit">Next</button>
+                </div>
             </form>
         </div>
 

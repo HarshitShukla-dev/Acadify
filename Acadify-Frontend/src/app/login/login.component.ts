@@ -57,5 +57,9 @@ export class LoginComponent implements OnInit{
             console.error('Form is invalid');
         }
     }
+
+    redirectToDashboard(): void {
+      this.router.navigate(['/dashboard']);
+    }
   
 }

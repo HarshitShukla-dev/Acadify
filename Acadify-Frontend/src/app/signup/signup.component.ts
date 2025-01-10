@@ -118,4 +118,8 @@ export class SignupComponent {
             console.error('Form is invalid');
         }
     }
+
+    redirectToDashboard(): void {
+        this.router.navigate(['/dashboard']);
+      }
 }
